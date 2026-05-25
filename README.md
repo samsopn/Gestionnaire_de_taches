@@ -30,9 +30,14 @@ php artisan serve
 
 Ouvrir http://127.0.0.1:8000/taches
 
-## Déploiement (Render + Docker)
+## Déploiement (Render + Docker + PostgreSQL)
 
-Voir [DEPLOY.md](DEPLOY.md).
+1. Créer une base **PostgreSQL** sur Render.
+2. Web Service **Docker** (voir `Dockerfile`).
+3. Variables : `DB_CONNECTION=pgsql`, `DATABASE_URL` (fourni par Render), `APP_KEY`, `APP_URL`.
+4. Shell : `php artisan migrate --force`.
+
+Guide complet : [DEPLOY.md](DEPLOY.md). Blueprint optionnel : `render.yaml`.
 
 ## Licence
 
